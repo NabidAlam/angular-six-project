@@ -1,16 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-// tslint:disable-next-line: component-selector
-  selector: '[app-servers]',
-  template: '<app-server></app-server><app-server></app-server><app-server></app-server><app-server></app-server>',
+  selector: 'app-servers',
+  templateUrl: './servers.component.html',
   styleUrls: ['./servers.component.css']
 })
+
 export class ServersComponent implements OnInit {
 
-  constructor() { }
+  allowNewServer = false;
+  serverCreationStatus = 'No server is created!';
+  constructor() {
+    setTimeout(() => {
+      this.allowNewServer = true;
+    }, 2000);
+   }
 
   ngOnInit() {
   }
 
+
+  onCreateServer() {
+    this.serverCreationStatus = 'Server was created!';
+  }
 }
